@@ -1,0 +1,108 @@
+<div class="content">
+  <div class="playbook-page">
+    <div class="left-column">
+      <div *ngIf="!carded" class="pb-selector-div">
+        <h2 style="margin-bottom: -0.5em;">Choose A Playbook</h2><br>
+        <div *ngFor="let playbook of playbooks">
+          <button (click)="selectPlaybook(playbook)">{{ playbook.title }}</button>
+        </div>
+      </div>
+      <app-dice-roller></app-dice-roller>
+    </div>
+
+
+    <div *ngIf="selectedPlaybook && !carded" class="playbook-div">
+      <input type="text" class="name-box" placeholder="Mallgoer's Name and Pronouns" [(ngModel)]="name"> <b> ,</b>
+      <h2 class="playbook-title">{{ selectedPlaybook.title }}</h2>
+      <h2 class="playbook-subheader">of The Infinite.</h2>
+      <p class="playbook-quote">{{ selectedPlaybook.quote }}</p>
+      <hr>
+      <h2 class="description-header">The 411 On {{ selectedPlaybook.title }}</h2>
+      <details>
+        <summary><h2 class="description-subheader">Playstyle: {{ selectedPlaybook.desc_header}}</h2></summary>
+        <p class="description">{{ selectedPlaybook.desc }}</p>
+      </details>
+      <hr>
+      <h3 class="description-header">Playbook Moves:</h3>
+      <p *ngIf="selectedPlaybook.move_num === 'one'">You get all the basic moves
+                                                     plus {{selectedPlaybook.move_num}} {{ selectedPlaybook.title.substring(4) }}
+                                                     move.</p>
+      <p *ngIf="selectedPlaybook.move_num !== 'one'">You get all the basic moves
+                                                     plus {{selectedPlaybook.move_num}} {{ selectedPlaybook.title.substring(4) }}
+                                                     moves.</p>
+      <div class="move-container">
+        <ul style="list-style-type: none;  margin: 0;  padding: 0;">
+          <li *ngFor="let move of selectedPlaybook.moves; let i = index">
+            <div>
+              <div class="move-check">
+                <input type="checkbox" id="{{ move.move_name }}_checkbox" style="margin-top: 0.5em;"
+                       [checked]="isSelected(move)" (change)="toggleMoveSelection($event, move)">
+              </div>
+              <div class="move-box">
+                <span class="move-name">{{move.move_name}}:  </span> <span class="move-description">{{move.desc}}</span>
+                <ul>
+                  <li *ngFor="let roll of move.rolls">
+                    <p><b>{{ roll.submove_name }}: </b> {{ roll.desc }}</p>
+                  </li>
+                  <li *ngFor="let bullet of move.bullets">
+                    <p><b *ngIf="bullet.submove_name">{{ bullet.submove_name }}:</b> {{ bullet.desc }}</p>
+                  </li>
+                  <div>
+                    <li *ngFor="let choice of move.choices; let j = index">
+                      <input type="checkbox" id="{{ move.move_name + j }}_checkbox" style="margin-top: 0.5em;"
+                             [checked]="isChoiceSelected(move, choice)"
+                             (change)="toggleChoiceSelection($event, move, choice)" [disabled]="!isSelected(move)">
+                      <label><b *ngIf="choice.submove_name">{{ choice.submove_name }}:</b> {{ choice.desc }}</label>
+                    </li>
+                  </div>
+                </ul>
+                <br>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button class="clear-button" (click)="clear()">Clear</button>
+      <button (click)="generateCard()">Gimme My Card!</button>
+    </div>
+    <div *ngIf="carded" class="playbook-div">
+      <h2 class="playbook-title">{{name}},</h2>
+      <h2>{{ selectedPlaybook.title }} of The Infinite.</h2>
+      <hr>
+      <div>
+        <!-- Add modifier buttons for each stat -->
+        <button [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Savvy', savvy)">Savvy</button>
+        <button [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Slick', slick)">Slick</button>
+        <button [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Swag', swag)">Swag</button>
+        <button [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Strong', strong)">Strong</button>
+        <button [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Shop', shop)">Shop</button>
+      </div>
+      <h3 class="description-header">Your Moves:</h3>
+      <div class="move-container">
+        <ul style="list-style-type: none;  margin: 0;  padding: 0;">
+          <li *ngFor="let move of moves; let i = index"
+              style="max-width: 100% !important; margin-left: -1em !important;">
+            <div class="move-box">
+              <span class="move-name">{{move.move_name}}:  </span> <span class="move-description">{{move.desc}}</span>
+              <ul>
+                <li *ngFor="let roll of move.rolls">
+                  <p><b>{{ roll.submove_name }}: </b> {{ roll.desc }}</p>
+                </li>
+                <li *ngFor="let bullet of move.bullets">
+                  <p><b *ngIf="bullet.submove_name">{{ bullet.submove_name }}:</b> {{ bullet.desc }}</p>
+                </li>
+                <li *ngFor="let choice of move.chosen">
+                  <p><b *ngIf="choice.submove_name">{{ choice.submove_name }}:</b> {{ choice.desc }}</p>
+                </li>
+              </ul>
+              <br>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button class="clear-button" (click)="goBack()">Edit</button>
+    </div>
+  </div>
+</div>
+
+

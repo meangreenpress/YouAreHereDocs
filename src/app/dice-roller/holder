@@ -1,0 +1,95 @@
+<div class="content">
+  <div class="playbook-page">
+    <div class="left-column">
+      <div class="pb-selector-div">
+      <h2 style="margin-bottom: -0.5em;">Choose A Playbook</h2><br>
+      <div *ngFor="let playbook of playbookOptions">
+        <button (click)="selectPlaybook(playbook)">{{ playbook.name }}</button>
+      </div>
+    </div>
+      <app-dice-roller></app-dice-roller>
+    </div>
+
+
+    <div *ngIf="selectedPlaybook && !carded" class="playbook-div">
+      <input type="text" class="name-box" placeholder="Mallgoer's Name and Pronouns" [(ngModel)]="name"> <b> ,</b>
+      <h2 class="playbook-title">{{ selectedPlaybook.name }}</h2>
+      <h2 class="playbook-subheader">of The Infinite.</h2>
+      <p class="playbook-quote">{{ selectedPlaybook.quote }}</p>
+      <hr>
+      <h2 class="description-header">The 411 On {{ selectedPlaybook.name }}</h2>
+      <details>
+        <summary><h2 class="description-subheader">Playstyle: {{ selectedPlaybook.description_header}}</h2></summary>
+        <p class="description">{{ selectedPlaybook.description }}</p>
+      </details>
+      <hr>
+      <h3 class="description-header">Playbook Moves:</h3>
+      <p *ngIf="selectedPlaybook.move_num === 'one'">You get all the basic moves
+                                                     plus {{selectedPlaybook.move_num}} {{ selectedPlaybook.name.substring(4) }}
+                                                     move.</p>
+      <p *ngIf="selectedPlaybook.move_num !== 'one'">You get all the basic moves
+                                                     plus {{selectedPlaybook.move_num}} {{ selectedPlaybook.name.substring(4) }}
+                                                     moves.</p>
+      <div class="move-container">
+        <ul style="list-style-type: none;  margin: 0;  padding: 0;">
+        <li *ngFor="let option of selectedPlaybook.options; let i = index">
+          <div>
+            <div class="move-check">
+              <input type="checkbox" id="{{option.move_name}} checkbox" style="margin-top: 0.5em;" [(ngModel)]="checkedOptions[i]">
+            </div>
+            <div class="move-box">
+              <span class="move-name">{{option.move_name}}:  </span> <span
+              class="move-description">{{option.description}}</span>
+              <ul>
+                <li *ngFor="let roll of option.rolls">
+                  <p><b>{{ roll.threshold }}: </b> {{ roll.outcome }}</p>
+                </li>
+                <li *ngFor="let bullet of option.bullets">
+                  <p><b *ngIf="bullet.name">{{ bullet.name }}:</b> {{ bullet.description }}</p>
+                </li>
+                <div>
+                  <li *ngFor="let choice of option.choices; let j = index">
+                    <input type="checkbox" id="{{ option.move_name + j}} check" style="margin-top: 0.5em;" [(ngModel)]="checkedOptions[i + j + 1]">
+                    <label><b *ngIf="choice.name">{{ choice.name }}:</b> {{ choice.description }}</label>
+                  </li>
+                </div>
+              </ul>
+              <br>
+            </div>
+          </div>
+        </li>
+      </ul>
+      </div>
+      <button class="clear-button" (click)="clearChoices()">Clear</button>
+      <button (click)="generateCard()">Gimme My Card!</button>
+    </div>
+    <div *ngIf="carded" class="playbook-div">
+      <h2 class="playbook-title">{{name}},</h2>
+      <h2>{{ selectedPlaybook.name }} of The Infinite.</h2>
+      <hr>
+      <h3 class="description-header">Your Moves:</h3>
+      <div class="move-container">
+        <ul style="list-style-type: none;  margin: 0;  padding: 0;">
+        <li *ngFor="let option of selectedPlaybook.options; let i = index" style="max-width: 100% !important; margin-left: -1em !important;">
+          <div *ngIf="checkedOptions[i]" class="move-box">
+            <span class="move-name">{{option.move_name}}:  </span> <span
+            class="move-description">{{option.description}}</span>
+            <ul>
+              <li *ngFor="let roll of option.rolls">
+                <p><b>{{ roll.threshold }}: </b> {{ roll.outcome }}</p>
+              </li>
+              <li *ngFor="let bullet of option.bullets">
+                <p><b *ngIf="bullet.name">{{ bullet.name }}:</b> {{ bullet.description }}</p>
+              </li>
+            </ul>
+            <br>
+          </div>
+        </li>
+      </ul>
+      </div>
+      <button class="clear-button" (click)="clearChoices()">Back</button>
+    </div>
+  </div>
+</div>
+
+

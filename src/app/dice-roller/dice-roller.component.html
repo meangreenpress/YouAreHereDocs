@@ -1,0 +1,82 @@
+<!-- dice-roller.component.html -->
+<div class="roller-box">
+  <div>
+    <details open class="rolling-zone">
+      <summary><h2 style="display:inline-block">Dice Roller</h2></summary>
+      <br>
+      <div>
+        <div style="display: inline-block" [class.wobbling]="rolling">
+          <img [src]="'../assets/dice/' + dice1 + '.png'" alt="Dice 1" [class.rotating]="rolling">
+        </div>
+        <div style="display: inline-block" [class.bouncing]="rolling">
+          <img [src]="'../assets/dice/' + dice2 + '.png'" alt="Dice 2" [class.rotating]="rolling">
+        </div>
+      </div>
+      <div>
+        <br>
+        <label>Modifier:</label>
+        <br>
+        <br>
+        <div style="margin-right: 1em;">
+          <span style="margin-right: 1.5em;">-1</span>
+          <span style="margin-right: 1.5em;">0</span>
+          <span style="margin-right: 1.5em;">1</span>
+          <span style="margin-right: 1.5em;">2</span>
+          <span>3</span>
+          <br>
+        </div>
+        <div>
+          <form>
+            <input class="mod-button" type="radio" id="modifierMinus1" name="modifier" value="-1"
+                   (click)="applyModifier(-1)" [disabled]="rolling">
+            <input class="mod-button" type="radio" id="modifier0" name="modifier" value="0" (click)="applyModifier(0)"
+                   [disabled]="rolling">
+            <input class="mod-button" type="radio" id="modifier1" name="modifier" value="1" (click)="applyModifier(1)"
+                   [disabled]="rolling">
+            <input class="mod-button" type="radio" id="modifier2" name="modifier" value="2" (click)="applyModifier(2)"
+                   [disabled]="rolling">
+            <input class="mod-button" type="radio" id="modifier3" name="modifier" value="3" (click)="applyModifier(3)"
+                   [disabled]="rolling">
+          </form>
+        </div>
+      </div>
+      <h3 *ngIf="!rolling && total >= 12" style="background-color: #AAF3B6FF; border-radius: 3em; padding: 1em; border: 2px solid #371500;
+          box-shadow: 0 0 60px 30px #aaf3b6;"> {{statName}}: {{ total }} (Deluxe!!)</h3>
+      <h3 *ngIf="!rolling && (total >= 10) && (total < 12)"
+          style="background-color: #F9BE44; border-radius: 3em; padding: 1em; border: 2px solid #371500">
+        {{statName}}: {{ total }} (Success)</h3>
+      <h3 *ngIf="!rolling && (total < 10) && (total > 6)"
+          style="background-color: #f99544; border-radius: 3em; padding: 1em; border: 2px solid #371500">
+        {{statName}}: {{ total }} (Mixed)</h3>
+      <h3 *ngIf="!rolling && (total <= 6) && (total > 0)"
+          style="background-color: #f96544; border-radius: 3em; padding: 1em; border: 2px solid #371500">
+        {{statName}}: {{ total }} (Miss)</h3>
+      <h3 *ngIf="!rolling && total === 0"
+          style="background-color: #fbdea1; border-radius: 3em; padding: 1em; border: 2px solid #371500">Total: Nothing
+                                                                                                         Yet!</h3>
+      <span *ngIf="!rolling && selectedModifier > 0">({{dice1}} + {{dice2}} + {{selectedModifier}})</span>
+      <span *ngIf="!rolling && selectedModifier < 0">({{dice1}} + {{dice2}} - {{Math.abs(selectedModifier)}})</span>
+      <span *ngIf="!rolling && selectedModifier === 0">({{dice1}} + {{dice2}})</span>
+      <h3 *ngIf="rolling"
+          style="background-color: #FBDEA1; border-radius: 3em; padding: 1em; border: 2px solid #371500">
+        Rolling...</h3>
+      <span *ngIf="rolling">Hold your breath!</span><br>
+      <button [disabled]="rolling" (click)="statRoll('Total')">Roll Dice</button>
+      <br>
+      <details class="log-zone">
+        <summary><h2 style="display: inline-block">Logged Rolls</h2></summary>
+        <div style="text-align: left">
+          <p style="font-size: 0.8em;" *ngFor="let roll of pastRolls">{{roll}}</p>
+        </div>
+      </details>
+    </details>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('your-selector').forEach(element => {
+  element.innerHTML = element.innerHTML.replace(/(specificword)/g, '<span class="special-word">$1</span>');
+  });
+</script>
+
