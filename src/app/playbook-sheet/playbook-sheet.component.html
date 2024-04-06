@@ -7,7 +7,13 @@
           <button (click)="selectPlaybook(playbook)">{{ playbook.title }}</button>
         </div>
       </div>
-      <app-dice-roller></app-dice-roller>
+      <div [class.hiding]="!carded">
+        <app-dice-roller></app-dice-roller>
+      </div>
+      <div [class.hiding]="!carded || !selectedPlaybook || selectedPlaybook.title !== 'The Mall Rat'">
+        <app-coin-flipper></app-coin-flipper>
+      </div>
+
     </div>
 
 
@@ -23,6 +29,40 @@
         <p class="description">{{ selectedPlaybook.desc }}</p>
       </details>
       <hr>
+      <h3 class="description-header" style="display: inline-block; margin: 0 0.6em 0 0;">Stats:</h3><br>
+      <b>*** Increase a stat by 1 on creation. Use the input fields below to increase stats.</b>
+      <div class="button-row">
+        <button title="Savvy means brain power. Use it to think real hard or snoop real well." class="stat-tag"
+                [style.background-color]="getStatTagColor(selectedPlaybook.savvy + savvy)">Savvy
+                                                                                           : {{ selectedPlaybook.savvy + savvy}}</button>
+        <button title="Slick means social know-how. Use it to shmooze or tell a convincing lie." class="stat-tag"
+                [style.background-color]="getStatTagColor(selectedPlaybook.slick + slick)">Slick
+                                                                                           : {{ selectedPlaybook.slick + slick}}</button>
+        <button title="Swag means keeping cool. Use it to show some finesse or keep real still." class="stat-tag"
+                [style.background-color]="getStatTagColor(selectedPlaybook.swag + swag)">Swag
+                                                                                         : {{ selectedPlaybook.swag + swag}}</button>
+        <button title="Strong means brute force. Use it to throw a punch or kick through a door." class="stat-tag"
+                [style.background-color]="getStatTagColor(selectedPlaybook.strong + strong )">Strong
+                                                                                              : {{ selectedPlaybook.strong + strong }}</button>
+        <button title="Shop means being a regular. Use it to find something valuable or swipe your card."
+                class="stat-tag" [style.background-color]="getStatTagColor(selectedPlaybook.shop + shop)">Shop
+                                                                                                          : {{ selectedPlaybook.shop + shop}}</button>
+      </div>
+
+      <div class="input-row">
+        <input type="number" [(ngModel)]="savvy" (input)="updateStat('savvy', $event)" [min]="0"
+               [max]="3 - selectedPlaybook.savvy">
+        <input type="number" [(ngModel)]="slick" (input)="updateStat('slick', $event)" [min]="0"
+               [max]="3 - selectedPlaybook.slick">
+        <input type="number" [(ngModel)]="swag" (input)="updateStat('swag', $event)" [min]="0"
+               [max]="3 - selectedPlaybook.swag">
+        <input type="number" [(ngModel)]="strong" (input)="updateStat('strong', $event)" [min]="0"
+               [max]="3 - selectedPlaybook.strong">
+        <input type="number" [(ngModel)]="shop" (input)="updateStat('shop', $event)" [min]="0"
+               [max]="3 - selectedPlaybook.shop">
+      </div>
+      <br>
+      <br>
       <h3 class="description-header">Playbook Moves:</h3>
       <p *ngIf="selectedPlaybook.move_num === 'one'">You get all the basic moves
                                                      plus {{selectedPlaybook.move_num}} {{ selectedPlaybook.title.substring(4) }}
@@ -69,13 +109,32 @@
       <h2 class="playbook-title">{{name}},</h2>
       <h2>{{ selectedPlaybook.title }} of The Infinite.</h2>
       <hr>
-      <div>
-        <!-- Add modifier buttons for each stat -->
-        <button [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Savvy', savvy)">Savvy</button>
-        <button [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Slick', slick)">Slick</button>
-        <button [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Swag', swag)">Swag</button>
-        <button [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Strong', strong)">Strong</button>
-        <button [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Shop', shop)">Shop</button>
+      <h2 class="description-header" style="display: inline-block; margin: 0 0.6em 0.2em 0 !important;">Stats:</h2>
+      <br>
+      <b>Click a stat to roll it. Hover for a refresher on what they mean.</b>
+      <div class="button-row">
+        <button title="Savvy means brain power. Use it to think real hard or snoop real well." class="stat-tag"
+                [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Savvy', selectedPlaybook.savvy + savvy)"
+                [style.background-color]="getStatTagColor(selectedPlaybook.savvy + savvy)">Savvy
+                                                                                           : {{ selectedPlaybook.savvy + savvy}}</button>
+        <button title="Slick means social know-how. Use it to shmooze or tell a convincing lie." class="stat-tag"
+                [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Slick', selectedPlaybook.slick + slick)"
+                [style.background-color]="getStatTagColor(selectedPlaybook.slick + slick)">Slick
+                                                                                           : {{ selectedPlaybook.slick + slick}}</button>
+        <button title="Swag means keeping cool. Use it to show some finesse or keep real still." class="stat-tag"
+                [disabled]="diceRoller.rolling" (click)="rollDiceWithModifier('Swag', selectedPlaybook.swag + swag)"
+                [style.background-color]="getStatTagColor(selectedPlaybook.swag + swag)">Swag
+                                                                                         : {{ selectedPlaybook.swag + swag}}</button>
+        <button title="Strong means brute force. Use it to throw a punch or kick through a door." class="stat-tag"
+                [disabled]="diceRoller.rolling"
+                (click)="rollDiceWithModifier('Strong', selectedPlaybook.strong + strong)"
+                [style.background-color]="getStatTagColor(selectedPlaybook.strong + strong )">Strong
+                                                                                              : {{ selectedPlaybook.strong + strong }}</button>
+        <button title="Shop means being a regular. Use it to find something valuable or swipe your card."
+                class="stat-tag" [disabled]="diceRoller.rolling"
+                (click)="rollDiceWithModifier('Shop', selectedPlaybook.shop + shop)"
+                [style.background-color]="getStatTagColor(selectedPlaybook.shop + shop)">Shop
+                                                                                         : {{ selectedPlaybook.shop + shop}}</button>
       </div>
       <h3 class="description-header">Your Moves:</h3>
       <div class="move-container">

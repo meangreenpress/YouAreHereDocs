@@ -5,16 +5,16 @@
 }
 
 .left-column {
-  max-width: 30%;
+  width: 25%;
   margin-right: 5%;
   display: inline-block;
   vertical-align: top;
 }
 
 .playbook-div {
-  max-width: 60%;
-  display: inline-block;
+  width: 65%;
   margin-right: 5%;
+  display: inline-block;
 }
 
 .pb-selector-div {
@@ -44,7 +44,6 @@
   font-size: 2.5em !important;
   color: #371500;
   margin-top: -0.2em !important;
-  margin-bottom: 0 !important;
   margin-left: 5em;
 }
 
@@ -90,6 +89,68 @@
   color: #371500;
   line-height: 1.7em !important;
   text-align: justify;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.stat-tag {
+  flex: 1; /* Make tags fill available space equally */
+  margin-right: 0.5em; /* Add margin between stat tags */
+  font-weight: bold;
+  font-size: 1.4em;
+  padding: 0.3em;
+  border-radius: 3em;
+  background-color: #f9be44;
+  color: #371500;
+  border: 2px solid #371500;
+  transition: ease-in-out;
+}
+
+.stat-tag:hover {
+  background-color: #371500 !important;
+  color: white;
+}
+
+.stat-tag:active {
+  transform: none !important;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input-row input {
+  flex: 1; /* Make inputs fill available space equally */
+  height: 2em;
+  text-align: center;
+  margin-right: 1em; /* Add margin between input fields */
+}
+
+.hiding{
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+button:disabled,
+button[disabled]{
+  background-color: #cccccc !important;
+  color: #666666;
+}
+
+button[disabled]:hover{
+  background-color: #cccccc !important;
+  color: #666666;
+}
+
+.input-row{
+  margin-left: 0.2em;
 }
 
 hr {
@@ -188,7 +249,8 @@ input {
     border-radius: 3em;
     margin-bottom: 2em;
   }
-  .playbook-div{
+
+  .playbook-div {
     width: 100% !important;
   }
 }

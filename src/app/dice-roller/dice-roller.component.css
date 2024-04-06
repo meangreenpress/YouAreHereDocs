@@ -15,6 +15,7 @@ button {
   border: 0.6em solid #F9BE44;
   padding: 2em;
   border-radius: 3em;
+  margin-bottom: 2em;
 }
 
 h2{
@@ -51,8 +52,13 @@ details summary {
   margin-right: 1em;
 }
 
-.rotating {
+.rotating2 {
   animation: rotate 1s ease-out infinite; /* Apply rotation animation only when rolling */
+}
+
+.rotating1 {
+  animation: rotate 1s ease-out infinite; /* Apply rotation animation only when rolling */
+  animation-delay: 0.1s;
 }
 
 .wobbling {
@@ -65,57 +71,74 @@ details summary {
 
 @keyframes rotate {
   0% {
-    transform: rotate(0deg); /* Start rotation from 0 degrees */
+    transform-origin: 50% 50%;
+    transform: rotate(0deg); /* Start and end at 0 degrees */
+  }
+  25% {
+    transform: rotate(360deg); /* Rotate 360 degrees */
+  }
+  75% {
+    transform: rotate(760deg); /* Rotate 360 degrees */
   }
   100% {
-    transform: rotate(720deg); /* Rotate 360 degrees */
+    transform: rotate(720deg); /* Start and end at 0 degrees */
   }
 }
 
 @keyframes wobble {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0);
-    transform-origin: 50% 50%;
+  0% {
+    transform: translateY(0px) translateX(0px);
   }
-
+  5% {
+    transform: translateY(-30px) translateX(-60px);
+  }
   15% {
-    transform: translateY(-30px) rotate(6deg);
+    transform: translateY(-30px) translateX(-30px) rotate(6deg);
   }
-
   30% {
-    transform: translateY(15px) rotate(-6deg);
+    transform: translateY(30px) translateX(0px) rotate(-6deg);
   }
-
   45% {
-    transform: translateY(-15px) rotate(3.6deg);
+    transform: translateY(-15px) translateX(15px) rotate(3.6deg);
   }
-
   60% {
-    transform: translateY(9px) rotate(-2.4deg);
+    transform: translateY(9px) translateX(25px) rotate(-2.4deg);
   }
-
   75% {
-    transform: translateY(-6px) rotate(1.2deg);
+    transform: translateY(-6px) translateX(30px) rotate(1.2deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
   }
 }
 
+
 @keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-    transform-origin: 50% 50%;
+  0% {
+    transform: translateY(0) translateX(0px);
+  }
+
+  5% {
+    transform: translateY(-10px) translateX(-60px);
+  }
+
+  15% {
+    transform: translateY(10px) translateX(-20px);
   }
 
   25% {
-    transform: translateY(-30px);
+    transform: translateY(15px) translateX(10px);
   }
 
   50% {
-    transform: translateY(0);
+    transform: translateY(5px) translateX(20px);
   }
 
   75% {
-    transform: translateY(-15px);
+    transform: translateY(-5px) translateX(30px) ;
+  }
+
+  100% {
+    transform: translateY(0) translateX(0px);
   }
 }

@@ -3,12 +3,13 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {DiceRollerComponent} from "../dice-roller/dice-roller.component";
 import {Title} from "@angular/platform-browser";
+import {CoinFlipperComponent} from "../coin-flipper/coin-flipper.component";
 
 @Component({
   selector: 'app-playbook-sheet',
   templateUrl: './playbook-sheet.component.html',
   styleUrls: ['./playbook-sheet.component.css'],
-  imports: [CommonModule, FormsModule, DiceRollerComponent],
+  imports: [CommonModule, FormsModule, DiceRollerComponent, CoinFlipperComponent],
   standalone: true
 })
 export class PlaybookSheetComponent {
@@ -63,6 +64,13 @@ export class PlaybookSheetComponent {
     // },
     {
       name: 'The Denizen',
+      stats: {
+        savvy: -1,
+        slick: 1,
+        swag: 1,
+        strong: 0,
+        shop: 0
+      },
       quote: 'Ohhhhhh, THAT\'S where that priceless family heirloom that \n' +
         'said \'To my dearest son, I\'ll always love you.\' came from! Boy, he \n' +
         'must be real mad at us... I\'m gonna go talk to him about it.',
@@ -179,6 +187,13 @@ export class PlaybookSheetComponent {
     },
     {
       name: 'The Encore',
+      stats: {
+        savvy: 1,
+        slick: 0,
+        swag: -1,
+        strong: 1,
+        shop: 0
+      },
       quote: 'I\'ve been here over and over and I can\'t remember a single \n' +
         'second of it. How many years of my life have I lost to this place? \n' +
         'That\'s it. This time, I\'m breaking The Loop!',
@@ -295,6 +310,13 @@ export class PlaybookSheetComponent {
     },
     {
       name: 'The Fashionweaver',
+      stats: {
+        savvy: 0,
+        slick: 1,
+        swag: 0,
+        strong: -1,
+        shop: 1
+      },
       quote: 'So I know you sent me for a harpoon, BUT I saw these really \n' +
         'cute galoshes and figured I\'d rather sink stylishly than fight the \n' +
         'Fountain Serpent in fugly fishing boots. Soz?',
@@ -390,6 +412,13 @@ export class PlaybookSheetComponent {
     },
     {
       name: 'The Mall Rat',
+      stats: {
+        savvy: 0,
+        slick: 0,
+        swag: 1,
+        strong: 1,
+        shop: -1
+      },
       quote: 'Who cares what The Mall Sentinels think? We\'re breaking out \n' +
         'of this place anyway. Now, give me a boost, I wanna spray paint \n' +
         'a unibrow on that poster up there.',
@@ -538,7 +567,7 @@ export class PlaybookSheetComponent {
     this.titleService.setTitle("YAH • Playbooks");
     // Initialize the checkedOptions array
     this.playbookOptions.forEach(playbook => {
-      let pb = new Playbook(playbook.name, playbook.quote, playbook.description_header, playbook.description, playbook.move_num);
+      let pb = new Playbook(playbook.name, playbook.quote, playbook.description_header, playbook.description, playbook.move_num, playbook.stats.savvy, playbook.stats.slick, playbook.stats.swag, playbook.stats.strong, playbook.stats.shop);
       playbook.options.forEach(option => {
         console.log(option.move_name);
         let mv = new Move(option.move_name, option.description)
@@ -582,6 +611,7 @@ export class PlaybookSheetComponent {
   clear() {
     this.moves = [];
   }
+
   goBack() {
     this.carded = false;
   }
@@ -593,6 +623,9 @@ export class PlaybookSheetComponent {
     console.log(this.name)
     console.log(this.moves)
     this.carded = true;
+    if (this.name === ""){
+      this.name = "Unnamed Mallgoer"
+    }
     this.printMoves()
   }
 
@@ -676,6 +709,43 @@ export class PlaybookSheetComponent {
     });
   }
 
+  getStatTagColor(statValue: number): string {
+    if (statValue >= 3) {
+      return 'rgba(249, 190, 68, 1)'; // Green color for value 3 or above
+    } else if (statValue === 2) {
+      return 'rgba(250, 201, 102, 1)'; // Light green color for value 2
+    } else if (statValue === 1) {
+      return 'rgba(251, 213, 136, 1)'; // Lighter green color for value 1
+    } else if (statValue === 0) {
+      return 'rgba(252, 223, 166, 1)'; // Even lighter green color for value 0
+    } else if (statValue === -1) {
+      return 'rgba(253, 236, 201, 1)'; // Very light green color for value -1
+    } else {
+      return 'rgba(255, 250, 240, 1)'; // Default color for any other value (red with very low opacity)
+    }
+  }
+
+  updateStat(stat: string, event: any) {
+    const value = parseFloat(event.target.value);
+    switch (stat) {
+      case 'savvy':
+        this.savvy = value;
+        break;
+      case 'slick':
+        this.slick = value;
+        break;
+      case 'swag':
+        this.swag = value;
+        break;
+      case 'strong':
+        this.strong = value;
+        break;
+      case 'shop':
+        this.shop = value;
+        break;
+    }
+  }
+
   protected readonly Number = Number;
 }
 
@@ -687,12 +757,24 @@ export class Playbook {
   moves: Move[] = []
   move_num: string;
 
-  constructor(title: string, quote: string, desc_header: string, desc: string, move_num: string) {
+  // these are stat variables (-1 to 3)
+  savvy: number = 0;
+  slick: number = 0;
+  swag: number = 0;
+  strong: number = 0;
+  shop: number = 0;
+
+  constructor(title: string, quote: string, desc_header: string, desc: string, move_num: string, savvy: number, slick: number, swag: number, strong: number, shop: number) {
     this.title = title;
     this.quote = quote;
     this.desc_header = desc_header;
     this.desc = desc;
-    this.move_num = move_num
+    this.move_num = move_num;
+    this.savvy = savvy;
+    this.slick = slick;
+    this.swag = swag;
+    this.strong = strong;
+    this.shop = shop;
   }
 
   addMove(move: Move) {
