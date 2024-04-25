@@ -5,7 +5,7 @@
       <summary><h2 style="display:inline-block">Coin Flipper</h2></summary>
       <br>
       <div>
-        <img [src]="'/assets/coin/' + sprite + '.png'" alt="Coin flip: {{sprite}}" [class.rising]="flipping">
+        <img [src]="'assets/coin/' + sprite + '.png'" alt="Coin flip: {{sprite}}" [class.rising]="flipping">
       </div>
       <h3 *ngIf="!flipping && sprite === '1'"
           style="background-color: #fbdea1; border-radius: 3em; padding: 1em; border: 2px solid #371500">Flip me!</h3>
