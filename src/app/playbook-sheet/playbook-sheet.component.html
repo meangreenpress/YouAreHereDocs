@@ -88,7 +88,7 @@
                     <p><b *ngIf="bullet.submove_name">{{ bullet.submove_name }}:</b> {{ bullet.desc }}</p>
                   </li>
                   <div>
-                    <li *ngFor="let choice of move.choices; let j = index">
+                    <li *ngFor="let choice of move.choices; let j = index" style="list-style: none;">
                       <input type="checkbox" id="{{ move.move_name + j }}_checkbox" style="margin-top: 0.5em;"
                              [checked]="isChoiceSelected(move, choice)"
                              (change)="toggleChoiceSelection($event, move, choice)" [disabled]="!isSelected(move)">
@@ -104,6 +104,9 @@
       </div>
       <button class="clear-button" (click)="clear()">Clear</button>
       <button (click)="generateCard()">Gimme My Card!</button>
+    </div>
+    <div *ngIf="!selectedPlaybook && !carded" class="playbook-div" style="height: 70em; text-align: center">
+      <h2 class="playbook-title">Select a Playbook to Get Started</h2>
     </div>
     <div *ngIf="carded" class="playbook-div">
       <h2 class="playbook-title">{{name}},</h2>

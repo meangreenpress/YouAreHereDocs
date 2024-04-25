@@ -1,144 +1,49 @@
 @import url('https://fonts.cdnfonts.com/css/devroye');
 
 .home-page {
-  max-width: 1600px;
-  margin: 2em auto 0;
-  padding: 2em;
-}
-
-.download_btn {
-  background-color: #f9f5ea;
-  transition: transform 0.3s ease;
-  border-style: dashed;
-}
-
-.download_btn:hover {
   background-color: #F9BE44;
-  border-style: solid;
+  background-image: url(https://img.itch.zone/aW1nLzEzNjAzNDA4LnBuZw==/original/2ZadxL.png);
+  background-repeat: repeat-y;
+  background-position: 50% 0;
+  height: 5000px;
 }
 
-.screenshot {
-  transition: transform 0.3s ease;
-  border-radius: 5px;
-  border: solid 2px black
-}
-
-.screenshot:hover {
-  transform: scale(1.05) rotate(5deg) translate(-20px, 0px);
-}
-
-.view_game_page .game_info_panel_widget {
-  background: rgba(229, 170, 48, 0);
-}
-
-.footer {
-  border-radius: 20px;
-  background-color: white;
-}
-
-.inner_column .button {
-  color: #31260d;
-  border: solid 2px black;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.inner_column .button:hover {
-  transform: scale(1.05);
-  background-color: #f0d8a8;
-}
-
-.inner_column .button:active {
-  background-color: #F9BE44;;
-  transform: translateY(4px) scale(0.95);
-}
-
-.upload_list_widget .upload .upload_name .name {
-  font-family: 'Devroye SCOSF', sans-serif;
-}
-
-.inner_column strong {
-  font-family: 'Devroye SCOSF', sans-serif;
-}
-
-.inner_column a, .inner_column .footer a {
-  transition: transform 0.3s ease;
-}
-
-.inner_column a:hover, .inner_column .footer a:hover {
-  color: #F9BE44;
-}
-
-.header_buy_row {
-  background-color: #FBDEA1;
-  border-bottom: solid black 2px;
-  border-top: solid black 2px;
-}
-
-
-.wrapper .button {
-  font-family: 'Devroye SCOSF', sans-serif;
-}
-
-.view_game_page .header_buy_row p {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  max-height: 0px;
-  margin: 0px;
-
-}
-
-.view_game_page .buy_row .dollars {
-  font-family: 'Devroye SCOSF', sans-serif;
-}
-
-.inner_column .left_col h1, .inner_column .left_col h2 {
-  background-color: #FBDEA1;
-  color: black;
+.home-content {
+  max-width: 1600px;
+  margin-top: 1.3em;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  border-radius: 20px;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  background-color: white;
+  border: #371500 2px solid;
 }
 
-.inner_column h1, .inner_column h2, .inner_column h3, .inner_column h4, .inner_column h5, .inner_column h6 {
-  font-family: 'Devroye SCOSF', sans-serif;
+.header img{
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  border-bottom: #371500 2px solid;
 }
 
-a:hover {
-  cursor: url('https://img.itch.zone/aW1nLzEzNjgyMzUwLnBuZw==/original/KM3ofR.png'), auto;
+.buy-header{
+  padding: 1.5em 0 1.5em 1.5em;
+  text-align: left;
 }
 
-a.button:hover {
-  cursor: url('https://img.itch.zone/aW1nLzEzNjgyMzUwLnBuZw==/original/KM3ofR.png'), auto;
+.buy-header div{
+  display: inline-block;
+  vertical-align: top;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    visibility: visible;
-  }
-  100% {
-    opacity: 1;
-    visibility: visible;
-  }
+.buy-row-frame{
+  width: 75%;
+  border: #d2971d 5px solid;
+  border-right: #d2971d 6px solid;
 }
 
-@keyframes fadeBackground {
-  0% {
-    background: #3F5A4A;
-  }
-  100% {
-    background: #FFFFFF;
-  }
-}
-
-@keyframes move-up {
-  0% {
-    transform: translatey(200px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
+.buy-row-text{
+  width: 17%;
+  margin-right: 2em;
+  vertical-align: middle !important;
+  text-align: center !important;
 }

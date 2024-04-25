@@ -6,7 +6,8 @@ import {HomeComponent} from "./home/home.component";
 
 export const routes: Routes = [
   { path: 'playbooks', component: PlaybookSheetComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ]
 
 @NgModule({

@@ -6,15 +6,18 @@
 
 .left-column {
   width: 25%;
-  margin-right: 5%;
   display: inline-block;
   vertical-align: top;
+  margin-right: 2%;
 }
 
 .playbook-div {
   width: 65%;
-  margin-right: 5%;
   display: inline-block;
+  background-color: #FFFFFF;
+  padding: 2em;
+  border-radius: 3em;
+  border: 0.6em solid #F9BE44;
 }
 
 .pb-selector-div {
@@ -24,6 +27,7 @@
   padding: 2em;
   border-radius: 3em;
   margin-bottom: 2em;
+  background-color: #FFFFFF;
 }
 
 .playbook-page {

@@ -22,7 +22,11 @@ h2, h3 {
   font-family: 'Devroye SCOSF', sans-serif;
 }
 body {
-  margin: 0em;
+  background-color: #F9BE44;
+  background-image: url(https://img.itch.zone/aW1nLzEzNjAzNDA4LnBuZw==/original/2ZadxL.png);
+  background-repeat: repeat-y;
+  background-position: 50% 0;
+  margin-bottom: 1.3em;
 }
 body, input[type="text"], button {
   color: #333;
@@ -53,7 +57,9 @@ button:disabled {
 }
 
   nav{
-    width: 100%;
+    margin-left: -1em;
+    margin-top: -0.5em;
+    width: 101.9%;
     height: 40px;
   }
 

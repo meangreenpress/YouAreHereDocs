@@ -560,6 +560,502 @@ export class PlaybookSheetComponent {
         },
       ]
     },
+    {
+      name: 'The Mallmancer',
+      stats: {
+        savvy: 1,
+        slick: 0,
+        swag: -1,
+        strong: 0,
+        shop: 1
+      },
+      quote: 'A little bit of "Lost" here... add a dash of "Hot" right there..... \n' +
+        'maybe even a smidge of "Fast?" This isn\'t a science, but I think \n' +
+        'this should do the trick and revive the melted Dairy Queen.',
+      description_header: 'Cooking Without A Recipe',
+      description: ' Tired of structured magic systems? Yearning for a little bit of \n' +
+        'chaos? If so, the tag-popping, spell-casting life of The \n' +
+        'Mallmancer is just what you need.\n' +
+        ' As a Mallmancer, you have the unique ability to bend reality in \n' +
+        'teeny tiny ways. Your power is channeled through "tags", small \n' +
+        'building blocks of magic that attach themselves to everything \n' +
+        'in The Mall. By collecting, combining, and invoking these tags, \n' +
+        'you can order up spells that are entirely customizable on the \n' +
+        'fly.\n' +
+        ' But be warned, the path of a Mallmancer is one of chaos. You \n' +
+        'never really know which way your magic will land, with every \n' +
+        'spell having the potential to go haywire, or worse, ERROR. Your \n' +
+        'best bet is to trust your magic, choose your tags wisely, and \n' +
+        'hold on tight to your Spell Catalogue at all costs.\n' +
+        ' So who is The Mallmancer? The Mallmancer is someone gifted \n' +
+        'with all the power of Mallcana with none of the experience to \n' +
+        'wield it safely. Do you lean into the chaos, or do you fear your \n' +
+        'own power? Perhaps you seek out the sacred schools of \n' +
+        'Mallcana throughout The Mall, searching for answers about \n' +
+        'the power taking root within you. Regardless, The Mallmancer \n' +
+        'can be anything, and truth be told, that has the potential to be \n' +
+        'really f$#%ing terrifying.',
+      move_num: "one",
+      options: [
+        {
+          move_name: 'Tag Team',
+          description: 'Add a tiny useless trinket of your choosing to \n' +
+            'your items. At the start of a Spree, pick a mallgoer and \n' +
+            'give them this totem. You have +1 to cast spells on them \n' +
+            'or to Step In for as long as they have it on them.',
+        },
+        {
+          move_name: 'Reticketed',
+          description: 'You can imbue the properties of a single tag \n' +
+            'from your Spell Catalogue to a weapon, article of clothing, \n' +
+            'or item, burning the tag in the process. Doing so takes a \n' +
+            'bit of time, and depending on the spell, it may come with \n' +
+            'unpredictable outcomes. Mark the change on whichever sheet holds\n' +
+            ' this item.',
+        },
+        {
+          move_name: 'Gandalf the Gallerist',
+          description: 'You have a teacher of Mallcana that \n' +
+            'has taken you under their wing; name them, or ask The \n' +
+            'Mall for one. When you seek advice, knowledge, or aid \n' +
+            'from them, roll +Savvy:',
+          rolls: [
+            {
+              threshold: 'On a 10+',
+              outcome: 'You get the wisdom you need.'
+            },
+            {
+              threshold: 'On a 7-9',
+              outcome: 'It isn\'t time for you to know, unless you\'re \n' +
+                'willing to prove it to them with a Debt.'
+            },
+            {
+              threshold: 'On a miss',
+              outcome: 'The message doesn\'t go through, your \n' +
+                'teacher is busy, or your request was simply too \n' +
+                'bothersome to them.'
+            },
+          ],
+        },
+        {
+          move_name: 'Zip Zap Zop',
+          description: 'You can now Throw Hands with magic by \n' +
+            'rolling +Shop instead of +Strong. Your magic counts as 1\n' +
+            'harm, far, and obvious + one tag from your Spell \n' +
+            'Catalogue, if you wish.',
+        },
+        {
+          move_name: 'More is More',
+          description: 'Your Spell Catalogue now can hold 3 tags.',
+        },
+        {
+          move_name: 'Little Big Brother',
+          description: 'You learn to conjure security cameras \n' +
+            'from the interdimensional Pocket Depot. You may only \n' +
+            'have one online at once, but while it\'s active, it\'s feed is \n' +
+            'streamed directly to your brain. To order a security camera \n' +
+            'on a nearby surface, roll +Shop:',
+          rolls: [
+            {
+              threshold: 'On a 10+',
+              outcome: 'You summon a shiny new Sentron Camera, \n' +
+                'with 4k video/audio and night vision.'
+            },
+            {
+              threshold: 'On a 7-9',
+              outcome: 'You get a meager knockoff, with somewhat \n' +
+                'fuzzy video, and no audio.'
+            },
+            {
+              threshold: 'On a miss',
+              outcome: 'You conjure up some useless kitschy \n' +
+                'gadget from the 90s.'
+            },
+          ],
+        },
+        {
+          move_name: 'Whispers of The Infinite',
+          description: 'When you listen closely to the \n' +
+            'entropic vibrations of The Mall, you may spend a favor to \n' +
+            'Read The Room about something you cannot see or \n' +
+            'cannot know.',
+        },
+      ]
+    },
+    {
+      name: 'The Part-Timer',
+      stats: {
+        savvy: 1,
+        slick: -1,
+        swag: 0,
+        strong: 1,
+        shop: 0
+      },
+      quote: 'Welcome to Benny\'s Burger Bonanza, home of Benny\'s \n' +
+        'Bonanza Burger, what would you like to order? \'A Benny\'s \n' +
+        'Bonanza Burger,\' you say? Daring, aren\'t we... That\'ll be $6.49.',
+      description_header: 'Working 9 to... 1',
+      description: ' Like working odd jobs in TTRPG\'s? Enjoy earning Favors almost \n' +
+        'as much as you like calling them in? If so, The Part-Timer is \n' +
+        'the perfect playbook for getting your hands dirty.\n' +
+        ' As a Part-Timer, you\'re not used to being a hero. You live a life \n' +
+        'of mundane tasks and thankless work, but here, you serve a \n' +
+        'unique role in the food chain of The Mall. Without people like \n' +
+        'you, the world doesn\'t spin.\n' +
+        ' Your power is not magic, but rather sheer willpower and \n' +
+        'determination. When you take on a new job, you\'ll gain some \n' +
+        'perks to help you in your current Spree, as well as a Favor \n' +
+        'earned at the end of a job well-done. By choosing your new job \n' +
+        'wisely and doing things by the book, you can rake in Favors for \n' +
+        'you and your party, a resource in The Mall worth its weight in \n' +
+        'gold.\n' +
+        ' So who is The Part-Timer? The Part-Timer is a nobody. You \n' +
+        'blend in just about everywhere, and the same phenomena that \n' +
+        'fools people into thinking they can talk down to you also gives \n' +
+        'them loose lips about things you perhaps shouldn\'t hear. \n' +
+        'Welcome to The Mall, Part-Timer, we\'ve truly been needing you.',
+      move_num: "two",
+      options: [
+        {
+          move_name: 'And My Brother, Luigi',
+          description: 'You can always convince your boss \n' +
+            'that a task requires another hire, and you have just the \n' +
+            'person in mind. You can temporarily give a willing mallgoer \n' +
+            'Work The System for the same job as you.',
+        },
+        {
+          move_name: 'The Spirit of Customer Service',
+          description: 'When interacting with the \n' +
+            'general public en masse, you can spend one Favor to be \n' +
+            'taken over by the Spirit of Customer Service. It often says \n' +
+            'the right thing, it hardly ruffles any feathers, and it leaves \n' +
+            'your mouth smelling of mint. Choose one:',
+          bullets: [
+            {
+              description: 'You make your point abundantly clear, and are \n' +
+                'incredibly direct and communicative. If you aren\'t lying, \n' +
+                'you are believed, and dare I say, trusted.'
+            },
+            {
+              description: 'You come off as an authoritative voice. People listen to \n' +
+                'your commands with more respect than you\'re used to, \n' +
+                'and provided it doesn\'t harm them, they will do what \n' +
+                'you ask.'
+            },
+            {
+              description: 'You de-escalate a negative emotion with grace and \n' +
+                'poise. Everyone involved is left calm. Violence is the \n' +
+                'furthest thing in their minds (for now).'
+            }
+          ]
+        },
+        {
+          move_name: 'For You, Kid, Anything',
+          description: 'For the cost of two Favors, you can \n' +
+            'wipe away a single Debt, no questions asked. Additionally, \n' +
+            'you can take on another mallgoer’s Debt or transfer Favor\'s \n' +
+            'earned from a job to somebody else.',
+        },
+        {
+          move_name: 'Nobody, Nobody',
+          description: 'People hardly pay you any mind. \n' +
+            'Whenever you roll to Be The Wallflower, roll +Slick instead \n' +
+            'of +Swag. Additionally, when in some kind of work uniform, \n' +
+            'you get a +1 to Be The Wallflower rolls, as you blend in as a \n' +
+            'fixture of The Mall.',
+        },
+        {
+          move_name: 'Just Doing My Job',
+          description: 'When rolling to do something \n' +
+            'specifically within your new job description, take +1 to any \n' +
+            'associated rolls. Once you miss, this move goes offline for \n' +
+            'this job and you\'ll get reprimanded if your supervisor was \n' +
+            'watching.',
+        },
+        {
+          move_name: ' \'Til Debt Do Us Part',
+          description: 'Add an extra box to your Debt track. \n' +
+            'Collectors will now leave you alone until you have 3 Debts.',
+        },
+        {
+          move_name: ' Uncrushable Spirit',
+          description: 'It\'s hard to kill someone who\'s already \n' +
+            'dead inside. You no longer croak when you hit 6 or more \n' +
+            'harm, but rather, on any attack that happens afterwards.',
+        },
+      ]
+    },
+    {
+      name: 'The Tethered',
+      stats: {
+        savvy: 1,
+        slick: 1,
+        swag: -1,
+        strong: 0,
+        shop: 0
+      },
+      quote: 'You guys, stop fighting! I hate it when you guys fight! it makes \n' +
+        'me feel like I\'M fighting with you BOTH, which I WILL BE if you \n' +
+        'don\'t CUT IT OUT!',
+      description_header: 'Social Butterfly',
+      description: 'If the Tethered is right for you, you\'ll likely already feel it. \n' +
+        'You\'ve always had a strong connection to the people around \n' +
+        'you, whether it be that one best friend you\'ve had forever or a \n' +
+        'massive friend group that keeps getting bigger.\n' +
+        ' As a Tethered, your kindness is infectious and reality-altering. \n' +
+        'Whether or not you felt it on the outside, here you know you \n' +
+        'make an impact. The social climate of The Mall is as vibrant as \n' +
+        'it is dangerous, and it is up to you to bring your group of \n' +
+        'mallgoers together to get through this in one piece.\n' +
+        ' Your power lies in your tethers, shimmering, nearly invisible \n' +
+        'threads of fate tying you and your allies together. With them, \n' +
+        'you can will your friends to stay alive and be their best selves.\n' +
+        ' So, who is The Tethered? The Tethered is a person that loves \n' +
+        'people. They want those that they care about to be the best \n' +
+        'they can be, and if that requires magical intercession, well, \n' +
+        'cest la vie. You are willing to do what you can to form a bond \n' +
+        'between you and these other mallgoers, and with time, you\'ll \n' +
+        'find that the double-edged sword of empathy can be a weapon \n' +
+        'worth using.',
+      move_num: "one",
+      options: [
+        {
+          move_name: 'Cheerleader',
+          description: 'You’re excellent at giving emotional support \n' +
+            'to those you are tethered to. At the start of a spree, roll \n' +
+            '+Slick:',
+          rolls: [
+            {
+              threshold: 'On a 10+',
+              outcome: 'You get 2 +1’s to apply to a tethered \n' +
+                'mallgoer’s roll after its happened. These may stack, if \n' +
+                'you wish.'
+            },
+            {
+              threshold: 'On a 7-9',
+              outcome: 'You get +1 to give to a tethered mallgoer.'
+            },
+            {
+              threshold: 'On a miss',
+              outcome: 'You get nothing. Sorry.'
+            },
+          ],
+        },
+        {
+          move_name: ' Jenny, Lady of the Block',
+          description: 'You find or purchase an item \n' +
+            'shaped like a shield (Though, not necessarily a shield). \n' +
+            'This item gives you 1 Block. Additionally, when you wish to \n' +
+            'Step In using the shield, you may choose exactly how \n' +
+            'much harm to block on a mixed success and above.',
+        },
+        {
+          move_name: 'Bad Vibes',
+          description: 'Whenever you cross paths with someone with \n' +
+            'evil intentions, you get a chill down your spine.',
+        },
+        {
+          move_name: ' Swapsies',
+          description: 'You can invoke a tether to a fellow mallgoer to \n' +
+            'swap places with them. When you wish to do so, roll \n' +
+            '+Shop.',
+          rolls: [
+            {
+              threshold: 'On a 10+',
+              outcome: 'You and your ally swap places \n' +
+                'instantaneously. Any restraints that were once on them \n' +
+                'are now on you.'
+            },
+            {
+              threshold: 'On a 7-9',
+              outcome: 'You and your ally briefly enter a liminal \n' +
+                'dimension as you trade places. To outsiders, you are \n' +
+                'both gone for 5 minutes.'
+            },
+            {
+              threshold: 'On a miss',
+              outcome: 'Choose one: Either the swap fails entirely or \n' +
+                'you take 1-harm as you yank forcefully on the tether.'
+            },
+          ],
+        },
+        {
+          move_name: ' Checkov\'s Chancla',
+          description: 'When you use an improvised weapon to \n' +
+            'Throw Hands, you roll +Savvy instead of +Strong. ',
+        },
+        {
+          move_name: 'No Strings Attached',
+          description: 'You may sever a tether, transforming \n' +
+            'it into a 0-harm, far, restraining lasso. It glows the same \n' +
+            'color as your aura and exists until the end of the current \n' +
+            'spree. You may reattach the tether as long as the tether is \n' +
+            'intact',
+        },
+        {
+          move_name: 'Window to the Soul',
+          description: 'When you wish to gleam the surface \n' +
+            'level thoughts or emotions of a person, roll +Slick:',
+          rolls: [
+            {
+              threshold: 'On a 10+',
+              outcome: 'You experience their thoughts and emotions \n' +
+                'as if they were your own. Additionally, you may peer \n' +
+                'deeper into their mind, but they will feel your presence \n' +
+                'and likely disapprove.'
+            },
+            {
+              threshold: 'On a 7-9',
+              outcome: 'You get vague emotions, and perhaps the \n' +
+                'odd passing thought.'
+            },
+            {
+              threshold: 'On a miss',
+              outcome: 'They sense your presence immediately and \n' +
+                'force you out of their mind.'
+            },
+          ],
+        },
+        {
+          move_name: 'Ring Ring',
+          description: 'You have tiny toy capsule gifts to give out to \n' +
+            'denizens and mallgoers, like mood rings or friendship \n' +
+            'bracelets. Those who hold these gifts may be spoken to \n' +
+            'telepathically across long-distances, provided there isn\'t \n' +
+            'any interference. You have one to start, and can trade \n' +
+            'Favors one-for-one to get more.\n',
+        }
+      ]
+    },
+    {
+      name: 'The Trinketeer',
+      stats: {
+        savvy: 1,
+        slick: -1,
+        swag: 0,
+        strong: 1,
+        shop: 0
+      },
+      quote: 'Gracie, your blender attachment is coming loose! Those guys \n' +
+        'sure did a number on you... Here, hand me the tape and I\'ll fix \n' +
+        'that for you. [Beeping] Oh, hush, that\'s what friends are for!',
+      description_header: 'Besties!',
+      description: 'The world can get lonely sometimes. Even in a place like The \n' +
+        'Mall, companionship can be hard to come by. Luckily for The \n' +
+        'Trinketeer, you have a built-in bestie... well... a built bestie.\n' +
+        ' As a Trinketeer, you awake with a core in your hands, an object \n' +
+        'humming with latent power, begging to be awakened with more \n' +
+        'items. Take care of your Thingamajig, and it will take care of \n' +
+        'you. As you build your Thingamajig and grow in your abilities, \n' +
+        'you will assert yourself as a friend of the merchandise lining \n' +
+        'the shelves of The Mall.\n' +
+        ' The Thingamajig is bound to you, and you to it. By recruiting \n' +
+        'items to join the amalgamation, your Thingamajig will change \n' +
+        'slightly in the items it can produce. After all, in the \n' +
+        'unpredictable cashscape of The Mall of the Infinite, you never \n' +
+        'know when a toasted pop-tart can turn the tides.\n' +
+        ' So who is The Trinketeer? The Trinketeer is a creative soul, \n' +
+        'seeing past appearances and thinking of how things can come \n' +
+        'together and sing. You can bring out the best in the things and \n' +
+        'people around you, or you could make a mess out of the \n' +
+        'mundane. It\'s up to you to toe the line.',
+      move_num: "one",
+      options: [
+        {
+          move_name: 'Long Distance Relationship',
+          description: ' You establish a link between \n' +
+            'you and The Thingamajig, whether it be psychic or through \n' +
+            'the use of technology. Whichever medium you choose, you \n' +
+            'can use it to see and hear everything The Thingamajig can, \n' +
+            'as well as speak with it.',
+        },
+        {
+          move_name: 'Tinker, Tailor',
+          description: 'As a Trinketeer, you’re very used to finding \n' +
+            'new ways to make items work together. When you attempt \n' +
+            'to combine two items, roll +Savvy: ',
+          rolls: [
+            {
+              threshold: 'On a 10+',
+              outcome: 'It’s the best of both worlds! The resulting \n' +
+                'hybrid item has all the tags of both original items, \n' +
+                'except you may modify or throw out one tag.'
+            },
+            {
+              threshold: 'On a 7-9',
+              outcome: 'It kind of works! Pick two tags from each \n' +
+                'item to mix into the new one.'
+            },
+            {
+              threshold: 'On a miss',
+              outcome: 'It’s like skittles and m&m’s. Pick one tag to \n' +
+                'keep, The Mall will pick another.'
+            },
+          ],
+        },
+        {
+          move_name: 'Itemology',
+          description: 'When Reading The Room about an item, you \n' +
+            'can inspect it more closely than others, or perhaps, even \n' +
+            'speak with it. You can always ask these as a free bonus \n' +
+            'question:',
+          bullets: [
+            {
+              description: 'What this object has seen or experienced?'
+            },
+            {
+              description: 'Who this object does or doesn’t belong to?'
+            },
+            {
+              description: 'What can this object do beyond the obvious?'
+            }
+          ]
+        },
+        {
+          move_name: 'Would You Kindly?',
+          description: ' You can command The Thingamajig to \n' +
+            'do something, whether it would like to or not. If it has to \n' +
+            'roll to complete an action, it uses the stats of it’s Trinketeer.',
+        },
+        {
+          move_name: 'Backpack of Holding',
+          description: 'You have a bag that can hold an \n' +
+            'incredulous amount of items without the weight. As more \n' +
+            'items get tossed into its void, it gets more difficult to find \n' +
+            'older items, which may require a +Swag roll to retrieve. ',
+        },
+        {
+          move_name: 'Knight in Plastic Armor',
+          description: 'Once per spree, The Thingamajig \n' +
+            'can become a makeshift mech, tanking all harm to you as \n' +
+            'long as it stands and granting you it’s strength. When riding/\n' +
+            ' wearing The Thingamajig, you have +1 Strong. Additionally, \n' +
+            'you gain an additional effect to Throw Hands on a 7+. If \n' +
+            'The Thingamajig shatters, your mech is gone and you take \n' +
+            '2-harm from the shattering blow.',
+        },
+        {
+          move_name: 'Get Over Here!',
+          description: 'When you wish to call a non-sentient object \n' +
+            'to you that isn’t held or affixed to something, roll +Shop: ',
+          rolls: [
+            {
+              threshold: 'On a 10+',
+              outcome: 'The item flies into your hand.'
+            },
+            {
+              threshold: 'On a 7-9',
+              outcome: 'The item slowly and loudly slides towards you.'
+            },
+            {
+              threshold: 'On a miss',
+              outcome: 'The item stays still, shakes in defiance, or \n' +
+                'downright flees from you.'
+            },
+          ],
+        }
+      ]
+    },
     // Add more playbook options as needed
   ];
 
